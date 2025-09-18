@@ -2,7 +2,7 @@ FROM runpod/worker-comfyui:5.4.1-base
 
 # --- Build arg & env for Civitai ---
 ARG CIVITAI_TOKEN
-ENV CIVITAI_TOKEN=${CIVITAI_TOKEN}
+# ENV CIVITAI_TOKEN=${CIVITAI_TOKEN}
 
 # (Si faltara curl en la imagen base, descomenta estas 3 líneas)
 # RUN apt-get update && apt-get install -y curl && \
@@ -66,4 +66,5 @@ RUN comfy model download \
 
 # --- Input dir ---
 RUN mkdir -p /comfyui/input
+
 
