@@ -1,7 +1,8 @@
 FROM runpod/worker-comfyui:5.4.1-base
 
 # Instalar nodos personalizados necesarios
-RUN comfy-node-install comfyui_controlnet_aux comfy-yolo comfy-core
+RUN comfy-node-install comfyui_controlnet_aux \
+    https://github.com/kadirnar/ComfyUI-YOLO.git
 
 # Modelo base SDXL
 RUN comfy model download --url https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors --relative-path models/checkpoints --filename sd_xl_base_1.0.safetensors
@@ -20,3 +21,4 @@ RUN comfy model download --url https://huggingface.co/Shandypur/ESRGAN-4x-UltraS
 # Crear directorio para imágenes de entrada
 
 RUN mkdir -p /comfyui/input
+
