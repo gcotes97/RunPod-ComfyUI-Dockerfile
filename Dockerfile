@@ -1,7 +1,7 @@
 FROM runpod/worker-comfyui:5.4.1-base
 
 # --- Build arg & env for Civitai ---
-ARG CIVITAI_TOKEN
+# ARG CIVITAI_TOKEN
 ENV CIVITAI_TOKEN=5572addf296e86be358a274f0efd1325
 
 # Instalar curl (necesario para bajar LoRAs desde Civitai)
