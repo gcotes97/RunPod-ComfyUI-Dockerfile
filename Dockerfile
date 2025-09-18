@@ -4,9 +4,8 @@ FROM runpod/worker-comfyui:5.4.1-base
 ARG CIVITAI_TOKEN
 # ENV CIVITAI_TOKEN=${CIVITAI_TOKEN}
 
-# (Si faltara curl en la imagen base, descomenta estas 3 líneas)
-# RUN apt-get update && apt-get install -y curl && \
-#     rm -rf /var/lib/apt/lists/*
+# Instalar curl (necesario para bajar LoRAs desde Civitai)
+RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
 
 # --- Custom nodes ---
 RUN comfy-node-install comfyui_controlnet_aux \
@@ -66,5 +65,6 @@ RUN comfy model download \
 
 # --- Input dir ---
 RUN mkdir -p /comfyui/input
+
 
 
